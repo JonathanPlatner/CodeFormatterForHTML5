@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var accessorsRegex = /using|public|private|class|void/g;
+	var accessorsRegex = /using|public|private|class|void|static|namespace/g;
 	var baseTypesRegex = /int|float|bool|string|double|single|decimal|long/g;
 	var userTypesRegex = /Transform|Rigidbody2D|Rigidbody|GameObject|Vector2|Vector3|Input/g;
 	var baseTypes = ['float', 'int', 'string','bool','false','true'];
