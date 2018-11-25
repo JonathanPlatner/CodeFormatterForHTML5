@@ -4,10 +4,7 @@
 
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-		
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="base.css">
 		<script src="highlights.js"></script>
 		<script src="codeStyle.js"></script>
@@ -28,8 +25,8 @@ public class PlayerMove : MonoBehaviour {
 	private Rigidbody2D rb;
 	
 	// Use this for initialization
-	void Start() {
-		rb = GetComponent&ltRigidbody2D&gt();
+	protected override void Start() {
+		rb = GetComponent&ltRigidbody2D&gt(); //comments
 	}
 	
 	// Update is called once per frame
