@@ -27,3 +27,15 @@
 	background-color : rgb(64,64,64);
 	font-family : consolas;
 }
+
+.string{
+	color : lawngreen;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
+}
+
+.number{
+	color : #a862ea	;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
+}

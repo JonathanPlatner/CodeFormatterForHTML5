@@ -14,7 +14,7 @@ for (i=0;i<keywords.length-1;i++){
 	s+=keywords[i]+'|';
 }
 s+=keywords[keywords.length-1];
-s='(?<=[^\\w])('+s+')(?=[^\\w])';
+s='(?<=[^\\w])('+s+')(?=[^\\w])(?=(?:[^"]*"[^"]*")*[^"]*$)';
 var r= new RegExp(s,'g');
 return r;
 }
@@ -100,7 +100,21 @@ function GetClasses (){
 		s+=key[i]+'|';
 	}
 	s+=key[key.length-1];
-	s='(?<=[^\\w])('+s+')(?=[^\\w])';
+	s='(?<=[^\\w])('+s+')(?=[^\\w])(?=(?:[^"]*"[^"]*")*[^"]*$)';
+	var r= new RegExp(s,'g');
+	return r;
+}
+
+function GetUserClasses (){
+	key = ['PlayerMove','Program','Console'];
+	
+	var s='';
+	var i;
+	for (i=0;i<key.length-1;i++){
+		s+=key[i]+'|';
+	}
+	s+=key[key.length-1];
+	s='(?<=[^\\w])('+s+')(?=[^\\w])(?=(?:[^"]*"[^"]*")*[^"]*$)';
 	var r= new RegExp(s,'g');
 	return r;
 }
@@ -137,18 +151,51 @@ function RemoveComments(text){
 }
 
 function AddComments(text,comments){
+
 	lines=text.split('\n');
 	var i;
 	
 	for (i=0;i<lines.length;i++){
-		//if (lines[i].search('//')>-1){
-		//comments[i] = '<span class="comment">'+lines[i].match(/\/\/.+/)+'</span>';
 		lines[i] += comments[i];
-		//}
+		
 	}
 
 	
 	return lines.join('\n');
+}
+
+function GetStringIndices(text){
+	var lines=text.split('\n');
+	var i;
+	var indices=[];
+	for(i=0;i<lines.length;i++){
+		var n=0;
+		var found = false;
+		var k=0;
+		indices[i]=0;
+		var lineIndices=[];
+		while(n<lines[i].length){
+			var s=lines[i].charAt(n);
+			if (s==='"'){
+				if (!found){
+					found=true;
+					lineIndices[k]=n;
+					k++;
+				}
+				else if (found){
+					found=false;
+					
+				}
+			}
+			n++;
+		}
+		indices[i]=lineIndices;
+	}
+	return indices;
+}
+
+function RemoveStrings(text){
+	
 }
 
 function ReplaceText(text,key,className){
