@@ -1,35 +1,23 @@
 $(document).ready(function(){
-
-	var accessorsRegex = /using|public|private|class|void|static|namespace/g;
-	var baseTypesRegex = /int|float|bool|string|double|single|decimal|long/g;
-	var userTypesRegex = /Transform|Rigidbody2D|Rigidbody|GameObject|Vector2|Vector3|Input/g;
-	var baseTypes = ['float', 'int', 'string','bool','false','true'];
-	var userTypes = ['Transform', 'Vector2', 'Vector3','GameObject'];
-	var i;
-   
-	$('.code').each(function(){
+ 
+	$('.csharp').each(function(){
 		
 	var text = $(this).html();
-	
-	text = text.replace(/["'].+["']/g,'<font color="mediumspringgreen">$&</font>');
-	//text = text.replace(/(?<!^)(?<=[^\w])(\d+\.\d+f|\d+\.\d+|\d+f|\d+)/g, '<font color="plum">$&</font>');
-	text = text.replace(/(?<=class\s)\w+|(?<=:).+(?=\{)/g, '<font color="orange">$&</font>'); //Class
-	text = text.replace(accessorsRegex, '<font color="deepskyblue">$&</font>'); //Accessors
 
-	//text = text.replace(/\w+(?=\()/g,'<font color="mediumspringgreen">$&</font>');
-	text = text.replace(/(\/\/.+)/g,'<font color="gray">$&</font>');
+	var comments=CopyComments(text);
+	text = RemoveComments(text);
+
+	text = text.replace(GetKeywords(), '<span class="keyword">$&</span>');
 	
-	text = text.replace(baseTypesRegex,'<font color="deepskyblue">$&</font>');
+	text = text.replace(GetClasses(), '<span class="class">$&</span>');
 	
-	text = text.replace(userTypesRegex,'<font color="orange">$&</font>');
+	text = text.replace(GetUserClasses(), '<span class="class">$&</span>');
 	
-   
-   
-   
+	text=text.replace(/"([^"><]*)"(?!>)/g, '<span class="string">$&</span>');
 	
-	
-	text = text.replace(/\r\n\d+/g, '<font color="yellow">$&</font>');
-   
+	text=text.replace(/(?<!\w)(\d+\.\d+f|\d+\.\d+|\d+f|\d+)/g,'<span class="number">$&</span>')
+	 
+	text = AddComments(text,comments);
    
 	$(this).html(text);
 	});

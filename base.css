@@ -1,4 +1,4 @@
-.code {
+.csharp {
 	color : rgb(235,235,235);
 	background-color : rgb(64,64,64);
 	font-family : consolas;
@@ -8,4 +8,34 @@
 	width : 800px;
 	margin : 20px auto 20px auto;
 	white-space : pre-wrap;
+}
+
+.comment{
+	color : #696969;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
+}
+
+.keyword {
+	color : deepskyblue;
+	background-color : rgb(64,64,64);
+	font-family : consolas;	
+}
+
+.class {
+	color : orange;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
+}
+
+.string{
+	color : lawngreen;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
+}
+
+.number{
+	color : #a862ea	;
+	background-color : rgb(64,64,64);
+	font-family : consolas;
 }

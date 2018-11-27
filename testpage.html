@@ -4,18 +4,16 @@
 
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-		
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="base.css">
+		<script src="highlights.js"></script>
 		<script src="codeStyle.js"></script>
 
 		<title>A Simple Test Page</title>
 	</head>
 	<body>
     
-		<div class="code">//SampleUnityScript
+		<div class="csharp">//SampleUnityScript
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,21 +25,21 @@ public class PlayerMove : MonoBehaviour {
 	private Rigidbody2D rb;
 	
 	// Use this for initialization
-	void Start() {
-		rb = GetComponent&ltRigidbody2D&gt();
+	protected override void Start() {
+		rb = GetComponent&ltRigidbody2D&gt(); //comments
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate() {
-		Vector2 move = Input.GetAxis("Horizontal") * Vector2.right
-			+ Input.GetAxis("Vertical") * Vector2.up;
+		Vector2 move = Input.GetAxis("Horizontal") * Vector2.right "Stuff"
+			+ Input.GetAxis("Vertical class") * Vector2.up; "Things"
 		move.Normalize();
 		rb.velocity = move * speed;	
 	}
 	
 }</div>
 
-<div class="code">//SampleConsoleApplication
+<div class="csharp">//SampleConsoleApplication
 using System;
 namespace Sample
 {
