@@ -16,6 +16,10 @@ $(document).ready(function(){
 	//text = text.replace(/(?<=class\s)\w+|(?<=:).+(?=\{)/g, '<font color="orange">$&</font>'); //Class
 	
 	var comments=CopyComments(text);
+	
+	var stringIndices=GetStringIndices(text);
+	var strings=CopyStrings(text);
+	
 	text = RemoveComments(text);
 	text = text.replace(GetKeywords(), '<span class="keyword">$&</span>');
 	

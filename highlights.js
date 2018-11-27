@@ -151,6 +151,12 @@ function AddComments(text,comments){
 	return lines.join('\n');
 }
 
+
+function CopyStrings(text){
+	
+	
+}
+
 function ReplaceText(text,key,className){
 	var lines=text.split('\n');
 	var keywords = key;
