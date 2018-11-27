@@ -165,41 +165,6 @@ function AddComments(text,comments){
 }
 
 
-function CopyStrings(text){
-	
-function GetStringIndices(text){
-	var lines=text.split('\n');
-	var i;
-	var indices=[];
-	for(i=0;i<lines.length;i++){
-		var n=0;
-		var found = false;
-		var k=0;
-		indices[i]=0;
-		var lineIndices=[];
-		while(n<lines[i].length){
-			var s=lines[i].charAt(n);
-			if (s==='"'){
-				if (!found){
-					found=true;
-					lineIndices[k]=n;
-					k++;
-				}
-				else if (found){
-					found=false;
-					
-				}
-			}
-			n++;
-		}
-		indices[i]=lineIndices;
-	}
-	return indices;
-}
-
-function RemoveStrings(text){
-	
-}
 
 function ReplaceText(text,key,className){
 	var lines=text.split('\n');
@@ -230,4 +195,3 @@ function ReplaceText(text,key,className){
 	text=lines.join('\n');
 	return text;
 }
-
