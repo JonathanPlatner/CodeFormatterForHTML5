@@ -10,7 +10,7 @@
 	white-space : pre-wrap;
 }
 
-.comment{
+.comment {
 	color : #696969;
 	background-color : rgb(64,64,64);
 	font-family : consolas;
@@ -28,13 +28,13 @@
 	font-family : consolas;
 }
 
-.string{
+.string {
 	color : lawngreen;
 	background-color : rgb(64,64,64);
 	font-family : consolas;
 }
 
-.number{
+.number {
 	color : #a862ea	;
 	background-color : rgb(64,64,64);
 	font-family : consolas;
